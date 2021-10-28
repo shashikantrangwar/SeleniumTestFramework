@@ -1,0 +1,43 @@
+<settings>
+	<profiles>
+		<profile>
+			<id>MyTest</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+		<profile>
+			<id>MyTest</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		</profile>
+	   <profile>
+			<id>artifactory</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<repositories>
+				 <repository>
+					<id>central</id>
+					<name>Central Repository</name>
+					<url>https://repo.maven.apache.org/maven2</url>
+					<layout>default</layout>
+					<snapshots>
+						<enabled>false</enabled>
+					</snapshots>
+				</repository>
+			</repositories>
+		</profile>
+	</profiles>
+	<activeProfiles>
+		<activeProfile>artifactory</activeProfile>
+	</activeProfiles>
+	<mirrors>
+		<mirror>
+			<id>central-secure</id>
+			<url>https://repo.maven.apache.org/maven2</url>
+			<mirrorOf>central</mirrorOf>
+		</mirror>
+	</mirrors>
+</settings>
