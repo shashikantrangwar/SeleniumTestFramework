@@ -17,6 +17,12 @@ pipeline {
                 powershell 'mvn clean install -f pom.xml -s settings.xml'
             }
         }
+		 stage('Test') {
+            steps {
+                echo 'Test code'
+                powershell 'mvn clean test -f pom.xml -s settings.xml'
+            }
+        }
         
     }
 }
