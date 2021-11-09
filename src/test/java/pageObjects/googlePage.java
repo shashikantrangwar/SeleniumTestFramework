@@ -8,7 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class googlePage  {
 
-    public WebDriver currentInstance=null;
+    public FirefoxDriver currentInstance=null;
     public void initWebDriver(FirefoxDriver webD)
     {
         currentInstance = webD;

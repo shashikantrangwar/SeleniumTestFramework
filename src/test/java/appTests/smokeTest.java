@@ -1,4 +1,5 @@
 package appTests;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import coreSelenium.seleniumBase;
@@ -11,15 +12,29 @@ public class smokeTest extends seleniumBase {
     {
         seleniumBase.initialize();
         googlePage gPage = new googlePage();
-        gPage.initWebDriver(webDriverInstance);
+        FirefoxDriver fDriver =  webDriverInstance;
+        gPage.initWebDriver(fDriver);
         gPage.enterSearchText("India");
         gPage.clickSearch();
 
     }
-    @AfterClass
+
+    @Test
+    public void searchStringsTest1()
+    {
+        seleniumBase.initialize();
+        googlePage gPage = new googlePage();
+        FirefoxDriver fDriver =  webDriverInstance;
+        gPage.initWebDriver(fDriver);
+        gPage.enterSearchText("India");
+        gPage.clickSearch();
+        Assert.assertFalse(true);
+    }
+    @AfterTest
     void closeDriver()
     {
-        webDriverInstance.quit();
+        webDriverInstance.close();
+
     }
 
 
