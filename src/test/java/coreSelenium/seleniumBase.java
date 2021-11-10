@@ -28,8 +28,8 @@ import java.util.Locale;
 
 public class seleniumBase{
 
-    public static FirefoxDriver webDriverInstance;
     public static FirefoxDriver webDriverInstance1;
+    public static EventFiringWebDriver webDriverInstance;
     public ExtentReports extent;
     public ExtentSparkReporter spark;
 
@@ -37,10 +37,11 @@ public class seleniumBase{
     {
         WebDriverEventListener listener = new TestListenerWebdriver();
         System.setProperty("webdriver.gecko.driver","C:\\Public\\ChromeDriver\\geckodriver.exe");
-        webDriverInstance = new FirefoxDriver();
-        EventFiringWebDriver eventDriver = new EventFiringWebDriver(webDriverInstance);
+        webDriverInstance1 = new FirefoxDriver();
+        EventFiringWebDriver eventDriver = new EventFiringWebDriver(webDriverInstance1);
         eventDriver.register(listener);
         eventDriver.get("https://www.google.com");
+
     }
     @BeforeTest(alwaysRun = true)
     public void startReporting(ITestContext i)
@@ -72,7 +73,7 @@ public class seleniumBase{
 
     @AfterClass
     public void tearDown() {
-        webDriverInstance.quit();
+        webDriverInstance1.quit();
     }
 
 }

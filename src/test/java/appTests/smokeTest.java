@@ -1,5 +1,6 @@
 package appTests;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.events.EventFiringWebDriver;
 import org.testng.Assert;
 import org.testng.annotations.*;
 import coreSelenium.seleniumBase;
@@ -12,7 +13,7 @@ public class smokeTest extends seleniumBase {
     {
         seleniumBase.initialize();
         googlePage gPage = new googlePage();
-        FirefoxDriver fDriver =  webDriverInstance;
+        FirefoxDriver fDriver = (FirefoxDriver) webDriverInstance1;
         gPage.initWebDriver(fDriver);
         gPage.enterSearchText("India");
         gPage.clickSearch();
@@ -24,7 +25,7 @@ public class smokeTest extends seleniumBase {
     {
         seleniumBase.initialize();
         googlePage gPage = new googlePage();
-        FirefoxDriver fDriver =  webDriverInstance;
+        FirefoxDriver fDriver = (FirefoxDriver) webDriverInstance1;
         gPage.initWebDriver(fDriver);
         gPage.enterSearchText("India");
         gPage.clickSearch();
@@ -33,7 +34,7 @@ public class smokeTest extends seleniumBase {
     @AfterTest
     void closeDriver()
     {
-        webDriverInstance.close();
+        webDriverInstance1.close();
 
     }
 
